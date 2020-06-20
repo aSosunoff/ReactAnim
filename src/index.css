@@ -60,6 +60,44 @@ code {
 	background: coral;
 }
 
+.os-enter {
+	opacity: 0;	
+}
+
+.os-enter-active {
+	opacity: 1;
+	transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+}
+
+/* .os-enter-done {
+	transform: translateX(0);
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+} */
+
+.os-exit {
+	opacity: 1;
+}
+
+.os-exit-active {
+	opacity: 0;
+	transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+}
+
+/* .os-exit-done {
+	opacity: 0;
+} */
+
 @keyframes square {
 	0% {
 		opacity: 0;

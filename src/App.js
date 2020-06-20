@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Transition } from "react-transition-group";
+import { Transition, CSSTransition } from "react-transition-group";
 
 export default () => {
 	const [toggle, setToggle] = useState(true);
+	const [toggle2, setToggle2] = useState(true);
 
 	return (
 		<div className="container">
@@ -12,6 +13,13 @@ export default () => {
 				}}
 			>
 				Toggle
+			</button>
+			<button
+				onClick={() => {
+					setToggle2(!toggle2);
+				}}
+			>
+				Toggle 2
 			</button>
 			<hr />
 			<div className="blocks">
@@ -32,6 +40,22 @@ export default () => {
 				>
 					{(state) => <div className={`square blue ${state}`}>{state}</div>}
 				</Transition>
+
+				<CSSTransition
+					in={toggle2}
+					timeout={1000}
+					mountOnEnter
+					unmountOnExit
+					classNames="os"
+					onEnter={() => console.log("onEnter")}
+					onEntering={() => console.log("onEntering")}
+					onEntered={() => console.log("onEntered")}
+					onExit={() => console.log("onExit")}
+					onExiting={() => console.log("onExiting")}
+					onExited={() => console.log("onExited")}
+				>
+					<div className="square orange">{toggle2}</div>
+				</CSSTransition>
 			</div>
 		</div>
 	);
