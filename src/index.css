@@ -32,8 +32,24 @@ code {
 	justify-content: center;
 	width: 200px;
 	height: 200px;
-	animation: square ;
-	-webkit-animation: square 1s ease-out forwards;
+}
+
+.square.entering {
+	animation: square 1s ease-out forwards;
+}
+
+.square.exiting {
+	animation: square .5s ease-out alternate-reverse;
+	-webkit-animation: square .5s ease-out alternate-reverse;
+}
+
+.square.exited {
+	opacity: 0;
+	transform: translateY(-100px);
+	-webkit-transform: translateY(-100px);
+	-moz-transform: translateY(-100px);
+	-ms-transform: translateY(-100px);
+	-o-transform: translateY(-100px);
 }
 
 .square.blue {
