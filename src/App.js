@@ -1,9 +1,30 @@
 import React, { useState } from "react";
 import { Transition, CSSTransition } from "react-transition-group";
+import List from "./List";
 
 export default () => {
 	const [toggle, setToggle] = useState(true);
 	const [toggle2, setToggle2] = useState(true);
+	const [items, setItems] = useState([
+		{ id: 1, title: "1" },
+		{ id: 2, title: "2" },
+		{ id: 3, title: "3" },
+	]);
+
+	const onDelete = (id) => {
+		setItems(items.filter((item) => item.id !== id));
+	};
+
+	const onAddedItem = () => {
+		const title = prompt();
+		setItems([
+			...items,
+			{
+				id: Date.now(),
+				title,
+			},
+		]);
+	};
 
 	return (
 		<div className="container">
@@ -20,6 +41,13 @@ export default () => {
 				}}
 			>
 				Toggle 2
+			</button>
+			<button
+				onClick={() => {
+					onAddedItem();
+				}}
+			>
+				Added item
 			</button>
 			<hr />
 			<div className="blocks">
@@ -56,6 +84,10 @@ export default () => {
 				>
 					<div className="square orange">{toggle2}</div>
 				</CSSTransition>
+			</div>
+
+			<div className="blocks">
+				<List items={items} onDelete={onDelete} />
 			</div>
 		</div>
 	);
